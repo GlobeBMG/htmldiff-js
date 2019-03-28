@@ -1,4 +1,4 @@
-﻿import Action from './Action';
+import Action from './Action';
 import Match from './Match';
 import MatchFinder from './MatchFinder';
 import Operation from './Operation';
@@ -80,7 +80,7 @@ class HtmlDiff {
             case Action.equal:
                 this.processEqualOperation(opp);
                 break;
-            case Action.delete:
+            case Action.del:
                 this.processDeleteOperation(opp, "diffdel");
                 break;
             case Action.insert:
@@ -217,7 +217,7 @@ class HtmlDiff {
             } else if (matchStartsAtCurrentPositionInOld && !matchStartsAtCurrentPositionInNew) {
                 action = Action.insert;
             } else if (!matchStartsAtCurrentPositionInOld) {
-                action = Action.delete;
+                action = Action.del;
             } else {
                 action = Action.none;
             }
